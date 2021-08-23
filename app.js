@@ -1,34 +1,39 @@
 const clear = document.getElementById('clear')
 const container = document.getElementById('container')
+let originalSize = 16;
+let boxes = [];
 
-
-makeRows(16)
-
-
+makeRows(originalSize);
 
 function getSize(){
-    let size = parseInt(prompt('Please enter the number of columns and rows.'))
-       return makeRows(size)
+    let newSize = parseInt(prompt('Please enter the number of columns and rows.'))
+       return makeRows(newSize)
+       
 };
 
 function makeRows(size){
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`
-    // container.style.cssText = `width: 500/${size}`
-    // container.style.cssText = `height: 500/${size}`
-    
+     
     console.log(size)
     
     for( i = 0; i < size * size; i++) {
         let cell =  document.createElement('div');
             cell.className = 'grid-item'
                 container.appendChild(cell);
-       }
-    };
-   
 
-let boxes= Array.from(document.getElementsByClassName('grid-item'))
+                
+       }
+       mousePaint();
+    };
+  
+
+
+function mousePaint() {
+
+    boxes = Array.from(document.getElementsByClassName('grid-item'))
     boxes.forEach(cel => cel.addEventListener('mouseenter', hovering));
+};
 
 function hovering(e){
     e.target.style.cssText = 'background-color: purple; transition: .7s'
