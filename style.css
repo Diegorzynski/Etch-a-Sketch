@@ -45,8 +45,8 @@ h1{
 
   #clear{
     float: left;
-    margin-left: 6em;
-    margin-top: 5em;
+    margin-left: auto;
+    margin-top: auto;
     background: #3498db;
     width: 180px;
     padding: 4px 0;
@@ -60,6 +60,7 @@ h1{
     text-transform: uppercase;
     color: #FFF;
     user-select: none;
+    position: absolute;
     
 }
 
