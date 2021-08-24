@@ -6,8 +6,6 @@ let color_change = document.getElementById('color-change')
 color_change.addEventListener('change',changeColor)
 let currentColor = `background-color: ${color_change.value}; transition: .7s`
 
-
-
 makeRows(originalSize);
 
 function getSize(){
@@ -20,15 +18,11 @@ function makeRows(size){
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`
      
-    console.log(size)
-    
     for( i = 0; i < size * size; i++) {
         let cell =  document.createElement('div');
             cell.className = 'grid-item'
                 container.appendChild(cell);
-
-                
-       }
+    }
        mousePaint();
     };
   
@@ -47,8 +41,9 @@ clear.addEventListener('click', clearing)
 
     function clearing(){
         boxes.forEach(cel => cel.style.cssText = 'background-color: white');
-         container.textContent = '';
-         getSize()
+        container.textContent = '';
+
+         getSize();
 }
 
 
